@@ -1,0 +1,197 @@
+{
+  "aviso": "Dados ficticios. Gerado pela demo a partir de examples/acervo_ficticio.",
+  "arquivos": [
+    {
+      "id": 1,
+      "caminho": "Programa - 4. Produtos/nota_tecnica_drenagem.md",
+      "extensao": ".md",
+      "categoria": "texto",
+      "tamanho_bytes": 390,
+      "prioridade": "P3",
+      "motivo": "acervo geral",
+      "obra": null,
+      "categoria_documental": null,
+      "estado": "COMPLETED",
+      "duplicata_de": null,
+      "conteudo_id": 8
+    },
+    {
+      "id": 2,
+      "caminho": "Programa - 3. Desenvolvimento/RD103/Relatorios/relatorio_semanal_obra.txt",
+      "extensao": ".txt",
+      "categoria": "texto",
+      "tamanho_bytes": 476,
+      "prioridade": "P2",
+      "motivo": "obra RD103, sem categoria identificada",
+      "obra": "RD103",
+      "categoria_documental": null,
+      "estado": "COMPLETED",
+      "duplicata_de": null,
+      "conteudo_id": 5
+    },
+    {
+      "id": 3,
+      "caminho": "Programa - 3. Desenvolvimento/RD103/Medicoes/medicao_12.md",
+      "extensao": ".md",
+      "categoria": "texto",
+      "tamanho_bytes": 526,
+      "prioridade": "P0",
+      "motivo": "obra RD103 + categoria critica 'medicoes'",
+      "obra": "RD103",
+      "categoria_documental": "medicoes",
+      "estado": "COMPLETED",
+      "duplicata_de": null,
+      "conteudo_id": 1
+    },
+    {
+      "id": 4,
+      "caminho": "Programa - 3. Desenvolvimento/RD103/Ensaios/ensaio_deflectometria_fwd.md",
+      "extensao": ".md",
+      "categoria": "texto",
+      "tamanho_bytes": 545,
+      "prioridade": "P2",
+      "motivo": "obra RD103 + categoria 'gestao_tecnica'",
+      "obra": "RD103",
+      "categoria_documental": "gestao_tecnica",
+      "estado": "COMPLETED",
+      "duplicata_de": null,
+      "conteudo_id": 7
+    },
+    {
+      "id": 5,
+      "caminho": "Programa - 3. Desenvolvimento/RD101/Projeto/faixa_de_dominio.md",
+      "extensao": ".md",
+      "categoria": "texto",
+      "tamanho_bytes": 507,
+      "prioridade": "P2",
+      "motivo": "obra RD101 + categoria 'projetos_engenharia'",
+      "obra": "RD101",
+      "categoria_documental": "projetos_engenharia",
+      "estado": "COMPLETED",
+      "duplicata_de": null,
+      "conteudo_id": 6
+    },
+    {
+      "id": 6,
+      "caminho": "Programa - 3. Desenvolvimento/RD101/3. Notificacoes/notificacao_001.md",
+      "extensao": ".md",
+      "categoria": "texto",
+      "tamanho_bytes": 562,
+      "prioridade": "P0",
+      "motivo": "obra RD101 + categoria critica 'notificacoes'",
+      "obra": "RD101",
+      "categoria_documental": "notificacoes",
+      "estado": "COMPLETED",
+      "duplicata_de": null,
+      "conteudo_id": 2
+    },
+    {
+      "id": 7,
+      "caminho": "Programa - 3. Desenvolvimento/RD101/1. Contratos/contrato_obra_rd101.md",
+      "extensao": ".md",
+      "categoria": "texto",
+      "tamanho_bytes": 865,
+      "prioridade": "P0",
+      "motivo": "obra RD101 + categoria critica 'contratos'",
+      "obra": "RD101",
+      "categoria_documental": "contratos",
+      "estado": "COMPLETED",
+      "duplicata_de": null,
+      "conteudo_id": 3
+    },
+    {
+      "id": 8,
+      "caminho": "Programa - 3. Desenvolvimento/RD101/0 - Obsoleto/contrato_obra_rd101 (copia).md",
+      "extensao": ".md",
+      "categoria": "texto",
+      "tamanho_bytes": 865,
+      "prioridade": "P4",
+      "motivo": "pasta de descarte/backup/superado",
+      "obra": "RD101",
+      "categoria_documental": null,
+      "estado": "DUPLICATE",
+      "duplicata_de": 7,
+      "conteudo_id": 3
+    },
+    {
+      "id": 9,
+      "caminho": "Programa - 1. Gestao do Contrato/Atas/ata_reuniao_mensal.md",
+      "extensao": ".md",
+      "categoria": "texto",
+      "tamanho_bytes": 503,
+      "prioridade": "P1",
+      "motivo": "categoria critica 'atas_reunioes' (fora de obra)",
+      "obra": null,
+      "categoria_documental": "atas_reunioes",
+      "estado": "COMPLETED",
+      "duplicata_de": null,
+      "conteudo_id": 4
+    }
+  ],
+  "conteudos": [
+    {
+      "conteudo_id": 1,
+      "extrator": "texto",
+      "caracteres": 509,
+      "trechos": [
+        "# Boletim de medição 12 — Rodovia RD-103\n\nDocumento fictício para demonstração.\n\n| Item | Serviço | Unidade | Quantidade no mês |\n|---|---|---|---|\n| 1.1 | Escavação, carga e transporte de material | m3 | 12.400 |\n| 2.3 | Base de brita graduada | m3 | 3.150 |\n| 3.2 | Concreto betuminoso usinado a quente | t | 1.870 |\n| 4.1 | Tubo de concreto D=0,80 m | m | 96 |\n\nObservação: a terraplenagem do segmento entre as estacas 300 e 340 foi medida\nparcialmente; o restante depende do laudo de controle tecnológico."
+      ]
+    },
+    {
+      "conteudo_id": 2,
+      "extrator": "texto",
+      "caracteres": 535,
+      "trechos": [
+        "# Notificação 001 — Não conformidade na camada de base\n\nDocumento fictício para demonstração.\n\n**Obra:** Rodovia RD-101 · **Trecho:** estaca 120 a estaca 135\n\nDurante a inspeção de rotina, a fiscalização identificou grau de compactação\nabaixo do especificado (ensaio Proctor intermediário) na camada de base entre\nas estacas 120 e 135.\n\n**Providência exigida:** refazer a compactação do segmento e apresentar novos\nensaios em até 10 dias corridos. O serviço não será medido até a liberação.\n\nEmitida por: Fiscal do Programa (Pessoa A)."
+      ]
+    },
+    {
+      "conteudo_id": 3,
+      "extrator": "texto",
+      "caracteres": 809,
+      "trechos": [
+        "# Contrato de execução de obra — Rodovia RD-101\n\n**Contrato no 000/0000** · Documento fictício para demonstração.\n\n## Cláusula 1 — Objeto\n\nExecução das obras de restauração do pavimento flexível da Rodovia RD-101,\ndo km 0+000 ao km 42+500, incluindo drenagem superficial, sinalização\nhorizontal e recomposição da faixa de domínio.\n\n## Cláusula 2 — Prazo\n\nO prazo de execução é de 18 (dezoito) meses, contados da emissão da ordem de\nserviço. Aditivos de prazo dependem de justificativa técnica aprovada pela\nfiscalização.\n\n## Cláusula 3 — Medição\n\nAs medições são mensais. O boletim de medição deve ser entregue até o quinto\ndia útil do mês seguinte, acompanhado da memória de cálculo e do registro\nfotográfico dos serviços medidos.\n\n## Cláusula 4 — Valor\n\nValor global de referência: R$ 0,00 (valor fictício)."
+      ]
+    },
+    {
+      "conteudo_id": 4,
+      "extrator": "texto",
+      "caracteres": 487,
+      "trechos": [
+        "# Ata da reunião mensal de acompanhamento\n\nDocumento fictício para demonstração.\n\nParticipantes: Coordenador(a), Engenheiro(a) Responsável, Pessoa A, Pessoa B.\n\n1. Cronograma: RD-101 com 62% de avanço físico; RD-103 com 38%.\n2. Medição 12 da RD-103 aprovada com ressalva no item de terraplenagem.\n3. A notificação 001 da RD-101 continua aberta; prazo de resposta em 10 dias.\n4. Encaminhamento: a equipe de projeto revisa o memorial da faixa de domínio\n da RD-101 até a próxima reunião."
+      ]
+    },
+    {
+      "conteudo_id": 5,
+      "extrator": "texto",
+      "caracteres": 475,
+      "trechos": [
+        "RELATORIO SEMANAL DE OBRA - RODOVIA RD-103\nDocumento ficticio para demonstracao.\n\nSemana 34. Frentes ativas: terraplenagem (estacas 300 a 340), drenagem\n(bueiros nas estacas 312 e 328) e pavimentacao (base, estacas 200 a 260).\n\nChuva em 2 dos 5 dias uteis. A producao de base ficou 30% abaixo do previsto.\nNao conformidades emitidas pelo Programa no periodo: nenhuma nova; a\nnotificacao 001 da RD-101 segue aberta.\n\nProxima semana: liberar o segmento 200-260 para imprimacao."
+      ]
+    },
+    {
+      "conteudo_id": 6,
+      "extrator": "texto",
+      "caracteres": 488,
+      "trechos": [
+        "# Memorial — faixa de domínio projetada da Rodovia RD-101\n\nDocumento fictício para demonstração.\n\nA faixa de domínio projetada tem largura total de 40 metros, simétrica em\nrelação ao eixo. Os marcos de concreto são implantados a cada 200 metros, com\ncoordenadas e azimute registrados na planilha de locação.\n\nInterferências identificadas: rede de energia (km 12), adutora (km 27) e\nacesso particular (km 31). Cada interferência gera um processo de\ndesapropriação ou remanejamento próprio."
+      ]
+    },
+    {
+      "conteudo_id": 7,
+      "extrator": "texto",
+      "caracteres": 518,
+      "trechos": [
+        "# Relatório de ensaio de deflectometria FWD — Rodovia RD-103\n\nDocumento fictício para demonstração.\n\nEquipamento: deflectômetro de impacto (FWD), carga de 40 kN.\nEspaçamento entre pontos: 40 m por faixa.\n\n| Segmento | Deflexão média (0,01 mm) | Desvio padrão | Situação |\n|---|---|---|---|\n| km 0 – km 5 | 48 | 9 | adequado |\n| km 5 – km 10 | 71 | 15 | atenção |\n| km 10 – km 15 | 112 | 22 | reforço recomendado |\n\nConclusão: o segmento km 10 – km 15 precisa de reforço estrutural antes da\nnova camada de revestimento."
+      ]
+    },
+    {
+      "conteudo_id": 8,
+      "extrator": "texto",
+      "caracteres": 372,
+      "trechos": [
+        "# Nota técnica 07 — Dimensionamento de bueiros\n\nDocumento fictício para demonstração.\n\nMétodo racional para bacias até 2 km2; acima disso, hidrograma unitário.\nTempo de recorrência de 25 anos para bueiros e 100 anos para pontes.\n\nRecomendação: substituir os tubos de concreto D=0,60 m por D=0,80 m nas\nestacas 312 e 328 da RD-103, onde a verificação hidráulica não atende."
+      ]
+    }
+  ]
+}

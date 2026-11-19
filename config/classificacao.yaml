@@ -1,0 +1,137 @@
+# ============================================================
+# Classificacao da arvore — descobre P0..P4 sozinha
+#
+# Nao e IA: sao regras sobre o nome das pastas, normalizado
+# (minusculo, sem acento, sem pontuacao). Toda pasta guarda o
+# MOTIVO da prioridade que recebeu, em `pasta.motivo`.
+#
+# Regra de prioridade:
+#   P0 = obra identificada + categoria critica
+#   P1 = categoria critica fora de obra
+#   P2 = demais pastas de obra (projeto, fotos, gestao tecnica...)
+#   P3 = restante do acervo            <-- tambem sera processado
+#   P4 = descarte/backup/superado      <-- processado por ultimo
+#
+# Subpasta herda a classificacao da pasta-mae quando nao casa
+# nenhuma regra propria (ex.: ".../3. Notificacoes/2024/").
+# ============================================================
+
+obras:
+  RD101:  ["rd 101", "rd101", "rd 101a"]
+  RD102A: ["rd 102a", "rd102a", "rd 102", "rd102"]
+  RD103:  ["rd 103", "rd103"]
+  RD104:  ["rd 104", "rd104"]
+
+# ------------------------------------------------------------
+# Categorias documentais. `critica: true` entra em P0 dentro de obra.
+# `padroes` sao testados como substring do nome normalizado da pasta.
+# ------------------------------------------------------------
+categorias_documentais:
+  - nome: contratos
+    critica: true
+    padroes: ["contrato", "contratual", "aditivo", "apostilamento", "termo de compromisso",
+              "ordem de servico", "ordem de inicio"]
+
+  - nome: notificacoes
+    critica: true
+    padroes: ["notificacao", "notificacoes", "notificac"]
+
+  - nome: nao_conformidades
+    critica: true
+    padroes: ["nao conformidade", "nao conformidades", "nc ", " nc", "rnc",
+              "registro de nao conformidade"]
+
+  - nome: oficios_correspondencias
+    critica: true
+    padroes: ["oficio", "oficios", "correspondencia", "correspondencias",
+              "carta", "cartas", "expediente", "protocolo", "resposta", "respostas"]
+
+  - nome: notas_tecnicas
+    critica: true
+    padroes: ["nota tecnica", "notas tecnicas", "parecer", "pareceres"]
+
+  - nome: medicoes
+    critica: true
+    padroes: ["medicao", "medicoes", "boletim de medicao", "bm ", "planilha de medicao"]
+
+  - nome: relatorios_semanais
+    critica: true
+    padroes: ["relatorio semanal", "relatorios semanais", "semanal de obras",
+              "acompanhamento de obras"]
+
+  - nome: relatorios_mensais
+    critica: true
+    padroes: ["relatorio mensal", "relatorios mensais", "dossie mensal", "mensal de obras"]
+
+  - nome: juridico
+    critica: true
+    padroes: ["juridico", "judicial", "processo administrativo", "defesa",
+              "recurso", "penalidade", "multa"]
+
+  - nome: desapropriacao
+    critica: true
+    padroes: ["desapropriacao", "desapropriacoes", "faixa de dominio", "indenizacao"]
+
+  - nome: atas_reunioes
+    critica: true
+    padroes: ["ata", "atas", "reuniao", "reunioes", "decisao", "decisoes",
+              "deliberacao", "memoria de reuniao"]
+
+  - nome: prestacao_contas
+    critica: true
+    padroes: ["prestacao de contas", "prestacao contas", "faturamento", "nota fiscal",
+              "notas fiscais", "pagamento", "financeiro"]
+
+  # --- reconhecidas, nao criticas ---------------------------------
+  - nome: projetos_engenharia
+    critica: false
+    padroes: ["projeto", "projetos", "executivo", "as built", "asbuilt", "basico",
+              "engenharia", "terraplenagem", "pavimentacao", "drenagem", "obras de arte",
+              "oae", "sinalizacao", "geotecnia", "topografia", "sondagem", "estrutural"]
+
+  - nome: gestao_tecnica
+    critica: false
+    padroes: ["gestao tecnica", "gestao de obra", "supervisao", "fiscalizacao",
+              "controle tecnologico", "ensaio", "ensaios", "laboratorio"]
+
+  - nome: documentos_parceiro   # critica: e o interlocutor do contrato
+    critica: true
+    padroes: ["parceiro"]
+
+  - nome: documentos_orgao
+    critica: true
+    padroes: ["orgao contratante", "orgao"]
+
+  # "programa" casa com TODAS as bibliotecas da raiz — vira ruido e nao
+  # distingue nada. Deixado de fora de proposito.
+
+  - nome: ambiental
+    critica: false
+    padroes: ["ambiental", "licenciamento", "licenca", "condicionante", "orgao ambiental"]
+
+  - nome: seguranca_trabalho
+    critica: false
+    padroes: ["seguranca do trabalho", "sst", "cipa", "epi", "acidente"]
+
+  - nome: fotografico
+    critica: false
+    padroes: ["fotografico", "fotos", "foto", "imagens", "registro fotografico"]
+
+# ------------------------------------------------------------
+# Pastas de descarte: reconhecidas, mas vao para o fim da fila (P4).
+# Continuam inventariadas e processadas — so por ultimo.
+# ------------------------------------------------------------
+descarte:
+  padroes: ["backup", "back up", "lixeira", "lixo", "descartado", "descartar",
+            "superado", "superados", "obsoleto", "antigo", "antigos", "old",
+            "nao usar", "nao utilizar", "versoes anteriores", "temp", "temporario",
+            "rascunho", "teste", "modelo antigo"]
+
+# ------------------------------------------------------------
+# Excecoes: prefixos cuja prioridade e fixada na mao, vencendo as
+# regras acima. Use quando a arvore enganar a heuristica.
+# ------------------------------------------------------------
+excecoes: []
+  # - prefixo: "Programa - 6. Arquivos Parceiro"
+  #   prioridade: 2
+  #   motivo: "acervo recebido, conferir depois"

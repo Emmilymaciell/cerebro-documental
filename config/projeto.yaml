@@ -1,0 +1,99 @@
+# ============================================================
+# Configuracao do Cerebro Documental
+# Tudo que muda de ambiente fica AQUI. Scripts nao tem caminho fixo.
+# ============================================================
+
+# Raiz do SharePoint sincronizado. READ-ONLY absoluto.
+raiz: "C:\\caminho\\exemplo\\acervo"
+
+# Saidas tecnicas — SEMPRE fora da arvore indexada.
+banco:      "C:\\caminho\\exemplo\\cerebro-documental\\data\\cerebro.db"
+derivados:  "C:\\caminho\\exemplo\\cerebro-documental\\derivados"
+logs:       "C:\\caminho\\exemplo\\cerebro-documental\\logs"
+
+# ------------------------------------------------------------
+# ESCOPO
+# O INVENTARIO percorre a raiz inteira, sempre. Esta lista so
+# restringe varreduras pontuais (`--escopo` faz o mesmo na linha
+# de comando). Vazio = tudo.
+# ------------------------------------------------------------
+escopo: []
+
+pastas_ignoradas:
+  - ".git"
+  - "$RECYCLE.BIN"
+  - "System Volume Information"
+  - "__MACOSX"
+  - "cerebro-documental"     # nunca indexar os proprios derivados
+  # Fora do escopo por decisao da Emmily (2026-09-20): esta pasta vem de
+  # OUTRO site do SharePoint, que a credencial atual nao alcanca (593 arq).
+  - "Coordenacao Programa - 02 Repositorio"
+
+arquivos_temporarios:
+  - "~$*"
+  - "*.tmp"
+  - ".~lock.*"
+  - "desktop.ini"
+  - "Thumbs.db"
+  - ".DS_Store"
+
+# ------------------------------------------------------------
+# CATEGORIAS por extensao (classificacao sem abrir o arquivo)
+# ------------------------------------------------------------
+categorias:
+  pdf:         [".pdf"]
+  docx:        [".docx", ".doc", ".docm", ".dotx", ".rtf", ".odt"]
+  xlsx:        [".xlsx", ".xls", ".xlsm", ".xlsb", ".ods"]
+  csv:         [".csv", ".tsv"]
+  pptx:        [".pptx", ".ppt", ".pptm", ".potx", ".odp"]
+  texto:       [".txt", ".md", ".json", ".xml", ".log", ".html", ".htm"]
+  imagem:      [".jpg", ".jpeg", ".png", ".tif", ".tiff", ".bmp", ".gif", ".heic", ".webp"]
+  cad:         [".dwg", ".dxf", ".dwf", ".dgn", ".rvt", ".ifc", ".kmz", ".kml", ".shp"]
+  email:       [".msg", ".eml", ".pst"]
+  compactado:  [".zip", ".rar", ".7z", ".gz"]
+  midia:       [".mp4", ".mov", ".avi", ".mp3", ".wav"]
+  bi:          [".pbix", ".pbit"]
+
+# Categorias com extrator implementado hoje. O resto do acervo continua
+# inventariado, com estado UNSUPPORTED — nada desaparece do catalogo.
+extratores_ativos: ["pdf", "docx", "pptx", "xlsx", "csv", "texto"]
+
+# ------------------------------------------------------------
+# NUVEM / HIDRATACAO
+# Fluxo: so na nuvem -> hidratar -> processar -> validar derivados
+#        -> registrar -> liberar espaco -> proximo
+# O original no SharePoint nunca e alterado, movido ou apagado.
+# ------------------------------------------------------------
+nuvem:
+  permitir_hidratacao: true
+  max_hidratacao_gb: 15          # orcamento por sessao do worker
+  espaco_livre_minimo_gb: 25     # abaixo disso: PAUSA_SEGURA_DISCO
+  tamanho_max_arquivo_gb: 2      # acima disso nao hidrata (fica UNSUPPORTED_TAMANHO)
+  liberar_apos_processar: true   # devolve para "somente na nuvem" (attrib UNPINNED)
+  # So libera o que NOS baixamos. Arquivo que ja estava local continua local.
+  liberar_somente_o_que_hidratamos: true
+  timeout_hidratacao_s: 900
+
+# ------------------------------------------------------------
+# WORKER
+# ------------------------------------------------------------
+worker:
+  max_tentativas: 4              # depois disso: ERROR_FINAL
+  checkpoint_a_cada: 50          # itens entre checkpoints de auditoria
+  heartbeat_s: 20
+  espera_fila_vazia_s: 300       # quanto dormir quando so restam itens em backoff
+  espera_rede_s: 120             # quanto dormir quando a nuvem nao responde
+  falhas_seguidas_para_pausar: 25
+  derivados_max_gb: 60           # acima disso: PAUSA_SEGURA_DISCO
+  tamanho_max_extracao_mb: 300   # acima disso extrai so metadados (PARTIAL)
+  paginas_max_pdf: 3000
+  # PDF com menos que isto de caracteres por pagina = escaneado -> OCR_REQUIRED
+  min_caracteres_por_pagina: 80
+
+# ------------------------------------------------------------
+# LIMITES OPERACIONAIS
+# ------------------------------------------------------------
+limites:
+  commit_a_cada: 1000            # arquivos por transacao no scanner
+  trecho_chars: 1500             # tamanho do trecho no indice de busca
+  trecho_sobreposicao: 150

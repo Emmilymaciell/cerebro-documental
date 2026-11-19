@@ -1,0 +1,43 @@
+# Arquivo FICTICIO (versao publica). O original e gerado por
+# scripts/11_mapear_drives.py a partir do tenant real e NAO e versionado aqui.
+# IDs, URLs e contagens abaixo sao inventados, no mesmo formato.
+gerado_em: '2026-01-01T00:00:00+00:00'
+site_id: contoso.sharepoint.com,00000000-0000-0000-0000-000000000000,00000000-0000-0000-0000-000000000000
+drives:
+- id: b!EXEMPLO-DRIVE-PROGRAMA-000000000000000000000000000000000000000001
+  nome: Programa
+  tipo: documentLibrary
+  web_url: https://contoso.sharepoint.com/sites/exemplo/Programa
+  raiz_id: 01EXEMPLO0000000000000000000000000
+  usado_gb: 0.0
+- id: b!EXEMPLO-DRIVE-DOCUMENTOS-0000000000000000000000000000000000000002
+  nome: Documentos
+  tipo: documentLibrary
+  web_url: https://contoso.sharepoint.com/sites/exemplo/Documentos%20Compartilhados
+  raiz_id: 01EXEMPLO0000000000000000000000000
+  usado_gb: 0.0
+drives_com_raiz_compartilhada: {}
+mapa_biblioteca:
+  Programa - 3. Desenvolvimento:
+    drive_id: b!EXEMPLO-DRIVE-PROGRAMA-000000000000000000000000000000000000000001
+    pasta_nuvem: 3. Desenvolvimento
+    como_casou: prefixo da biblioteca removido
+    arquivos_no_banco: 7
+  Programa - 1. Gestao do Contrato:
+    drive_id: b!EXEMPLO-DRIVE-PROGRAMA-000000000000000000000000000000000000000001
+    pasta_nuvem: 1. Gestao do Contrato
+    como_casou: prefixo da biblioteca removido
+    arquivos_no_banco: 1
+  Programa - 4. Produtos:
+    drive_id: b!EXEMPLO-DRIVE-PROGRAMA-000000000000000000000000000000000000000001
+    pasta_nuvem: 4. Produtos
+    como_casou: prefixo da biblioteca removido
+    arquivos_no_banco: 1
+sem_correspondencia: []
+amostra:
+  testados: 0
+  resolvidos: 0
+  taxa_pct: 0.0
+  sem_regra: 0
+  tamanho_divergente: 0
+  universo: 9

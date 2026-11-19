@@ -1,0 +1,80 @@
+# --- Credenciais: NUNCA versionar ---
+.env
+.env.*
+!.env.example
+*.pfx
+*.cer
+*.key
+*.pem
+
+# --- Office / Windows / OneDrive ---
+~$*
+*.tmp
+.~lock.*
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# --- Backups do banco: centenas de MB, reconstruiveis ---
+/data/backup/
+/backups/
+*.db-wal
+*.db-shm
+
+# --- Banco e derivados: dados, nao codigo ---
+# O banco pode chegar a alguns GB e os derivados a dezenas de GB.
+# Sao 100% reconstruiveis a partir do SharePoint + scripts.
+/data/*.db
+/data/*.db-wal
+/data/*.db-shm
+/data/*.sqlite
+/derivados/
+
+# --- Area temporaria ---
+/tmp/
+/scratch/
+
+# --- Logs ---
+/logs/*.jsonl
+/logs/*.log
+/logs/*.json
+*.log
+
+# --- Saidas ---
+# Versao publica: NENHUMA saida gerada do acervo e versionada (dado real).
+/output/*
+!/output/.gitkeep
+/output/**/*.zip
+/output/**/*.db
+/output/**/*.parquet
+/logs/*.txt
+
+# --- Lock de processo do worker (runtime, nao codigo) ---
+*.lock
+/data/*.lock
+
+# --- Worktrees temporarias de agentes (sprint paralelo) ---
+/.claude/worktrees/
+
+# --- Demonstracao: banco/derivados gerados a partir do acervo ficticio ---
+/examples/demo_saida/
+
+# --- Arquivos de escritorio / dados reais (versao publica) ---
+*.xlsx
+*.xls
+*.docx
+*.pdf
+*.pptx
+*.msg
+*.csv
+*.zip
+*.sqlite
+*.db
