@@ -541,8 +541,8 @@ semanais 3.486 · atas/reuniões 1.496 · relatórios mensais 1.450 · contratos
 1.375 · ofícios 1.358 · prestação de contas 1.293 · desapropriação 1.250 ·
 notas técnicas 894 · notificações 610 · Parceiro 377 · Órgão Contratante 137 · jurídico 47.
 
-Lista completa: [`output/prioridades.md`](output/prioridades.md) e
-[`output/pastas_classificadas.csv`](output/pastas_classificadas.csv).
+Lista completa: `output/prioridades.md` *(não incluído na versão pública)* e
+`output/pastas_classificadas.csv` *(não incluído na versão pública)*.
 
 ---
 

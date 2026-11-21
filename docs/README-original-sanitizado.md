@@ -66,7 +66,7 @@ python scripts\control.py pause         # pausa graciosa (espera o item atual)
 python scripts\control.py resume
 ```
 
-Manual completo de operação: [`docs/05_OPERACAO.md`](docs/05_OPERACAO.md).
+Manual completo de operação: [`docs/05_OPERACAO.md`](../docs/05_OPERACAO.md).
 
 ---
 

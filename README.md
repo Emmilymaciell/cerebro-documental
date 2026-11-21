@@ -78,7 +78,6 @@ extratores, busca, operação autônoma, auditoria de QA e prontidão para a mas
 | Mapeamento local ↔ nuvem | 147/149 caminhos resolvidos (98,7%) | `STATE.md`, etapa E2 |
 | Ritmo medido (amostra E7, 39 arquivos) | ~23 itens/min · ~1,1 MB/s com 1 worker | `scripts/cerebro.py` (comentário de concorrência) |
 | Decisões registradas | `DEC-001` a `DEC-045` | `STATE.md`, "Decisões tomadas" |
-| Tempo economizado | [a confirmar pela autora] | — |
 
 Estado honesto: o código está pronto para a massificação, mas o veredito de prontidão
 registrado é **NO-GO** até as etapas G5–G11 de
@@ -120,11 +119,20 @@ Testes: cada suíte é um script independente (`python tests/test_scanner.py`). 
 falam com o Graph real precisam de `.env` (modelo em `.env.example`) e podem ser puladas com
 `--sem-rede`.
 
+## Limitações conhecidas
+
+- O veredito de prontidão registrado para a massificação é **NO-GO** até as etapas G5–G11 de [`docs/13_PRONTIDAO_MASSIFICACAO.md`](docs/13_PRONTIDAO_MASSIFICACAO.md); processamento em massa, paralelismo e loop contínuo não foram liberados.
+- **Sem OCR**: PDFs com páginas escaneadas vão para `OCR_REQUIRED` (o texto das outras páginas é indexado); o OCR depende de instalar o Tesseract e de medir uma amostra real, e a regra de detecção (`DEC-043`) é provisória.
+- Imagens, CAD, vídeo e outros formatos sem extrator ficam catalogados como `UNSUPPORTED`, sem texto indexado.
+- A busca é **lexical** (SQLite FTS5); não há busca semântica por embeddings.
+- A leitura real exige app no Entra ID com acesso de leitura ao SharePoint e `.env`; a demo pública roda só sobre `examples/acervo_ficticio/`.
+- `tests/test_hidratacao.py` é manual contra OneDrive real e fica fora da rodada offline.
+
 ## O que eu decidi × o que a IA gerou
 
 O código foi escrito com **Claude Code** (e Codex) como ferramenta, sob minha especificação
 e revisão (`PROVENANCE.md`). A divisão, pelo que está registrado nas decisões do
-`STATE.md` (atribuição individual de cada decisão: [a confirmar pela autora]):
+`STATE.md`:
 
 **Decisões de produto e arquitetura (minhas):**
 
@@ -150,7 +158,6 @@ e revisão (`PROVENANCE.md`). A divisão, pelo que está registrado nas decisõe
   (`docs/11_QA_AUDITORIA.md`, `docs/11a_QA_VACUIDADE.md`).
 - Parâmetros do corte da busca (`DEC-041`): deleguei a escolha ao sprint, condicionada a
   medição comparativa entre cinco políticas (`docs/09_BUSCA.md`).
-- Proporção de código escrito à mão × gerado: [a confirmar pela autora].
 
 ## Stack
 
